@@ -6,6 +6,7 @@ APACHE_TIKA = "apache/tika:2.8.0.0"
 COLLABORA_CODE = "collabora/code:25.04.3.2.1"
 KEYCLOAK = "quay.io/keycloak/keycloak:25.0.0"
 MINIO_MC = "minio/mc:RELEASE.2021-10-07T04-19-58Z"
+NODE_IMAGE = "owncloudci/nodejs:22"
 OC_CI_ALPINE = "owncloudci/alpine:latest"
 OC_CI_BAZEL_BUILDIFIER = "owncloudci/bazel-buildifier"
 OC_CI_DRONE_ANSIBLE = "owncloudci/drone-ansible:latest"
@@ -267,7 +268,7 @@ def translation_sync(ctx):
         "steps": [
             {
                 "name": "translation-update",
-                "image": OC_CI_NODEJS,
+                "image": NODE_IMAGE,
                 "commands": [
                     "make l10n-read",
                     "curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash",
